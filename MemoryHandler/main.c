@@ -28,20 +28,20 @@ void freeMemory(void** ptr);
 void* AllocateMemory(size_t n_bytes);
 
 int main(int argc, const char * argv[]) {
-    
+
     int N = 0;
-    
+
     PRINT("Memory Handler\n");
-    
+
     PRINT("Enter array length\n");
     scanf("%i", &N);
-    
+
     if(N == 666){
         ERROR("NOPE\n");
     }
-    
+
     int* array = ALLOC_INT(N);
-    
+
     for(int i = 0; i < N; i++){
         array[i] = 2*i;
     }
@@ -49,26 +49,26 @@ int main(int argc, const char * argv[]) {
         printf("%i\t", array[i]);
     }
     printf("\n");
-    
+
     FREE(array);
-    
+
     if(array == NULL){
         ERROR("Memory is null\n");
     }
-    
+
     return EXIT_SUCCESS;
 }
 
 void* AllocateMemory(size_t n_bytes)
 {
-    
+
     PRINT("Allocating %i bytes\n", (int)n_bytes);
     void* p = malloc(n_bytes);
-    
+
     if(p == NULL){
         ERROR("Memory allocation failed\n");
     }
-    
+
     return p;
 }
 
